@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bin2Dec</title>
+
+    <script>
+
+      function convert() {
+        const binaryNumber = document.getElementById('b-input').value;
+
+        if (binaryNumber === '') {
+          return alert('Please, enter a binary number ex: 1010');
+        }
+
+        binaryNumber.split('').map((char) => {
+          if (char !== '0' && char !== '1') {
+            return alert('Please, enter a binary number');
+          }
+        });
+
+        const decimal = parseInt(binaryNumber, 2);
+        document.getElementById('d-input').value = decimal;
+        return true;
+      }
+
+    </script>
+
+  </head>
+
+  <body>
+    <div>
+      <h1>Bin2Dec</h1>
+      <p>Insert a Binary number: <input type="text" id="b-input" onchange="convert()" placeholder="Binary number"/></p>
+      <p>Decimal equivalent: <input type="text" id="d-input" readonly /></p>
+      <p><input type="button" value="CONVERT" onclick="convert()"></p>
+    </div>
+  </body>
+
+</html>
